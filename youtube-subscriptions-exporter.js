@@ -1,5 +1,4 @@
-if (window.location.href !== "https://www.youtube.com/") window.location.href =
-    "https://www.youtube.com/";
+if (window.location.href !== "https://www.youtube.com/") alert("Please go to youtube.com in order to run this script");
 
 Array.from(document.querySelectorAll("yt-formatted-string")).find(
     ytTextElement => /Show \d+ more$/.exec(ytTextElement.textContent) !==
