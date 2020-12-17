@@ -1,8 +1,10 @@
 // async wrapper required for Firefox, otherwise will get an "await is only valid in async function" error
 var start = async function() {
 
-    if (window.location.href !== "https://www.youtube.com/") alert(
-        "Please go to youtube.com in order to run this script");
+    if (window.location.href !== "https://www.youtube.com/") {
+		alert("Please go to youtube.com in order to run this script");
+		return;
+	}
 
     // Firefox requires that the slide out is visible to get the list of subscriptions
     if (getShowMoreElement() === undefined) {
@@ -21,7 +23,10 @@ var start = async function() {
             "style-scope yt-icon")).map(elem => elem.title + "\t" +
         elem.href);
 
-    console.log(subscriptions.join("\n"));
+    copyToClipboard(subscriptions.join("\n"));
+
+    alert(
+        "Subscriptions have been successfully copied to the clipboard.");
 
     function getShowMoreElement() {
         return Array.from(document.querySelectorAll(
@@ -34,3 +39,14 @@ var start = async function() {
 }
 
 start();
+
+function copyToClipboard(text) {
+    const input = document.createElement('textarea');
+    input.style.position = 'fixed';
+    input.style.opacity = 0;
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('Copy');
+    document.body.removeChild(input);
+};

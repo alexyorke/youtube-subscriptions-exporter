@@ -1,0 +1,13 @@
+{
+  "name": "YouTube Subscriptions Exporter",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "https://www.youtube.com/*", "https://youtube.com/*", "clipboardRead", "clipboardWrite"
+  ],
+  "browser_action": {
+      "default_title": "YouTube Subscriptions Exporter",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
