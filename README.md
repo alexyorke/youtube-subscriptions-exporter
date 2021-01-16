@@ -6,7 +6,7 @@ Export your YouTube channel subscriptions to a spreadsheet-like text file. Teste
 
 ### From Chrome's Extension Webstore
 
-Coming soon.
+Available on the [Chrome Extension Webstore](https://chrome.google.com/webstore/detail/youtube-subscriptions-exp/dhpojdmnffaocepmljcdcongdmkjblan)
 
 ### From source
 
