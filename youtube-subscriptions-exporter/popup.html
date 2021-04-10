@@ -2,6 +2,10 @@
 <html>
     <head>
         <style>
+            body {
+                font-size: 16px;
+            }
+
             .bold {
                 font-weight: bold;
             }
@@ -11,7 +15,15 @@
             }
 
             body {
-                width: 600px;
+                width: 400px;
+            }
+
+            ul#export-options li {
+                margin: 5px 5px;
+            }
+
+            ul#export-options li:active {
+                background-color: yellowgreen;
             }
         </style>
         <title>YouTube Subscriptions Exporter</title>
@@ -23,13 +35,16 @@
           <li>Go to <a href="youtube.com">youtube.com</a>.</li>
             <li>
               <div>Select how you'd like the subscriptions to be exported to your clipboard:</div>
-              <ul>
+              <ul id="export-options">
                 <li class="bold pointer export" id="spreadsheet">As a spreadsheet.</li>
                 <li class="bold pointer export" id="takeout">As YouTube Takeout/YouTube API (beta.)</li>
-                <li class="bold pointer export" id="newpipe">As NewPipe (beta.)</li>
+                <li class="bold pointer export" id="newpipe">As NewPipe/FreeTube/Invidious (beta.)</li>
               </ul>
             </li>
             <li>Wait until a popup says it was successfully copied.</li>
         </ol>
+
+        Note: some thumbnails may show up as broken images in FreeTube because the Invidious backend is rate-limited and can't fetch the thumbnails fast enough.<br /><br />
+        Not working? Want a feature? <a href="https://forms.gle/CZD5EECeqrkvzqYe8">Send feedback</a>
     </body>
 </html>

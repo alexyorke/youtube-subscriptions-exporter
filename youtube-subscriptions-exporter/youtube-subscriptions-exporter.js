@@ -1,5 +1,14 @@
 // async wrapper required for Firefox, otherwise will get an "await is only valid in async function" error
 var start = async function () {
+    class Channel {
+        constructor() {
+            this.id = "";
+            this.link = "";
+            this.title = "";
+            this.thumbnail = "";
+        }
+    }
+    
     if (window.location.href !== "https://www.youtube.com/") {
         alert("Please go to youtube.com in order to run this script");
         return;
@@ -19,7 +28,18 @@ var start = async function () {
     let subscriptions = Array.from(document.querySelectorAll(
         "a#endpoint")).filter(
             ytTextElement => !ytTextElement.innerHTML.includes(
-                "style-scope yt-icon"));
+                "style-scope yt-icon"))
+        .map(channel => {
+            let chan = new Channel();
+            chan.id = channel.href.split("/").pop();
+            chan.link = channel.href;
+            chan.title = channel.title;
+
+            const thumbnails = channel.querySelector("#endpoint > tp-yt-paper-item > yt-icon.guide-icon.style-scope.ytd-guide-entry-renderer").getAttribute("disable-upgrade");
+            const thumbnailUrl = JSON.parse(thumbnails).thumbnails[0].url;
+            chan.thumbnail = thumbnailUrl;
+            return chan;
+        });
 
     let textToCopyToClipboard = "";
 
@@ -28,11 +48,11 @@ var start = async function () {
 
         newPipeSubscriptions.app_version = "0.19.8";
         newPipeSubscriptions.app_version_int = 953;
-        newPipeSubscriptions.subscriptions = subscriptions.map(elem => {
+        newPipeSubscriptions.subscriptions = subscriptions.map(channel => {
             let aSubscription = new Object();
             aSubscription.service_id = 0;
-            aSubscription.url = elem.href;
-            aSubscription.name = elem.title;
+            aSubscription.url = channel.link;
+            aSubscription.name = channel.title;
             return aSubscription;
         });
 
@@ -70,24 +90,20 @@ var start = async function () {
             }
         };
 
-        let takeoutSubscriptions = subscriptions.map(elem => {
+        let takeoutSubscriptions = subscriptions.map(channel => {
             let template = JSON.parse(JSON.stringify(takeoutSubscription));
-            let channelId = elem.href.split("/").pop();
-            template.snippet.resourceId.channelId = channelId;
-            template.snippet.title = elem.title;
+            template.snippet.resourceId.channelId = channel.id;
+            template.snippet.title = channel.title;
 
-            const thumbnails = elem.querySelector("#endpoint > tp-yt-paper-item > yt-icon.guide-icon.style-scope.ytd-guide-entry-renderer").getAttribute("disable-upgrade");
-            const thumbnailUrl = JSON.parse(thumbnails).thumbnails[0].url;
-            template.snippet.thumbnails.default.url = thumbnailUrl;
-            template.snippet.thumbnails.high.url = thumbnailUrl;
-            template.snippet.thumbnails.medium.url = thumbnailUrl;
+            template.snippet.thumbnails.default.url = channel.thumbnail;
+            template.snippet.thumbnails.high.url = channel.thumbnail;
+            template.snippet.thumbnails.medium.url = channel.thumbnail;
             return template;
         });
-        
-        textToCopyToClipboard = JSON.stringify(takeoutSubscriptions);
 
+        textToCopyToClipboard = JSON.stringify(takeoutSubscriptions);
     } else {
-        textToCopyToClipboard = subscriptions.map(elem => elem.title + "\t" + elem.href).join("\n");
+        textToCopyToClipboard = subscriptions.map(channel => channel.title + "\t" + channel.link).join("\n");
     }
 
     copyToClipboard(textToCopyToClipboard);
