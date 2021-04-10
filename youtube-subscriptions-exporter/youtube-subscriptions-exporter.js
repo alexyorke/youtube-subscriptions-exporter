@@ -20,10 +20,18 @@ var start = async function() {
     let subscriptions = Array.from(document.querySelectorAll(
         "a#endpoint")).filter(
         ytTextElement => !ytTextElement.innerHTML.includes(
-            "style-scope yt-icon")).map(elem => elem.title + "\t" +
-        elem.href);
+            "style-scope yt-icon"));
+	
+    let textToCopyToClipboard = "";
+	
+    let exportType = "newpipe";
+    if (exportType === "newpipe") {
+	textToCopyToClipboard = JSON.stringify({"app_version":"0.19.8", "app_version_int": 953, "subscriptions": [...subscriptions.map(elem => {"service_id": 0, "url": elem.href, "name": elem.name})]});
+    } else {
+	textToCopyToClipboard = subscriptions.map(elem => elem.title + "\t" + elem.href).join("\n");
+    }
 
-    copyToClipboard(subscriptions.join("\n"));
+    copyToClipboard(textToCopyToClipboard);
 
     alert(
         "Subscriptions have been successfully copied to the clipboard.");
