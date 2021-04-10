@@ -23,8 +23,7 @@ var start = async function () {
 
     let textToCopyToClipboard = "";
 
-    let exportType = "youtube-takeout";
-    if (exportType === "newPipe") {
+    if (exportOption === "newpipe") {
         let newPipeSubscriptions = new Object();
 
         newPipeSubscriptions.app_version = "0.19.8";
@@ -38,7 +37,7 @@ var start = async function () {
         });
 
         textToCopyToClipboard = JSON.stringify(newPipeSubscriptions);
-    } else if (exportType === "youtube-takeout") {
+    } else if (exportOption === "takeout") {
         let takeoutSubscription = {
             "contentDetails": {
                 "activityType": "all",
@@ -94,7 +93,7 @@ var start = async function () {
     copyToClipboard(textToCopyToClipboard);
 
     alert(
-        "Subscriptions have been successfully copied to the clipboard.");
+        "Subscriptions have been successfully copied to the clipboard in the " + exportOption + " format.");
 
     function getShowMoreElement() {
         return Array.from(document.querySelectorAll(
@@ -116,4 +115,4 @@ function copyToClipboard(text) {
     input.select();
     document.execCommand('Copy');
     document.body.removeChild(input);
-};
+}
