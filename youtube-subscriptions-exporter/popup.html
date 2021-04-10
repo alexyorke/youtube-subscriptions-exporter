@@ -11,7 +11,7 @@
             }
 
             body {
-                width: 400px;
+                width: 600px;
             }
         </style>
         <title>YouTube Subscriptions Exporter</title>
@@ -20,11 +20,16 @@
     <body>
         <h4>YouTube Subscriptions Exporter</h4>
         <ol>
-            <li>Go to youtube.com</li>
+          <li>Go to <a href="youtube.com">youtube.com</a>.</li>
             <li>
-                <div class="bold pointer" id="copy">Click here to copy subscriptions to clipboard</div>
+              <div>Select how you'd like the subscriptions to be exported to your clipboard:</div>
+              <ul>
+                <li class="bold pointer" id="spreadsheet">As a spreadsheet.</li>
+                <li class="bold pointer" id="takeout">As YouTube Takeout/YouTube API (beta.)</li>
+                <li class="bold pointer" id="invidious">As Invidious (beta.)</li>
+              </ul>
             </li>
-            <li>Wait until a popup says it was successfully copied</li>
+            <li>Wait until a popup says it was successfully copied.</li>
         </ol>
     </body>
 </html>
