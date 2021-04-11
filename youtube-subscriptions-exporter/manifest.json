@@ -1,6 +1,6 @@
 {
   "name": "YouTube Subscriptions Exporter",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "permissions": [
     "tabs", "https://www.youtube.com/*", "https://youtube.com/*", "clipboardRead", "clipboardWrite"
   ],
