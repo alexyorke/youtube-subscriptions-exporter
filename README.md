@@ -2,6 +2,12 @@
 
 Export your YouTube channel subscriptions to the clipboard. Tested on the latest version of Firefox and Chrome on Windows 10 as of April 10th, 2021.
 
+## How to use
+
+### From Chrome's Extension Webstore
+
+Available on the [Chrome Extension Webstore](https://chrome.google.com/webstore/detail/youtube-subscriptions-exp/dhpojdmnffaocepmljcdcongdmkjblan)
+
 ## Description from Chrome Webstore
 
 Export your YouTube subscriptions (subscriber name, channel URL, and thumbnail) to tab-delimited CSV (spreadsheet), FreeTube, NewPipe, Invidious, and Google Takeout-like/YouTube API formats.
@@ -90,13 +96,6 @@ If you chose NewPipe/FreeTube/Invidious, this is what it'll look like:
 ```
 
 Don't have any text copied to your clipboard? Make sure that you wait until it says that your subscriptions have been copied (it might take several seconds.) If it's still not working, feel free to contact me on my contact email address on this extension and I'll take a look. Chances are YouTube might have updated and this extension might have to be updated as well.
-
-
-## How to use
-
-### From Chrome's Extension Webstore
-
-Available on the [Chrome Extension Webstore](https://chrome.google.com/webstore/detail/youtube-subscriptions-exp/dhpojdmnffaocepmljcdcongdmkjblan)
 
 ### From source
 
