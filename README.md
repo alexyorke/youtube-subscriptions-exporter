@@ -8,6 +8,8 @@ Export your YouTube channel subscriptions to the clipboard. Tested on the latest
 
 Available on the [Chrome Extension Webstore](https://chrome.google.com/webstore/detail/youtube-subscriptions-exp/dhpojdmnffaocepmljcdcongdmkjblan)
 
+![Chrome Extension image](https://github.com/alexyorke/youtube-subscriptions-exporter/raw/newpipe-export/chrome-extension-thumbnail.PNG)
+
 ## Description from Chrome Webstore
 
 Export your YouTube subscriptions (subscriber name, channel URL, and thumbnail) to tab-delimited CSV (spreadsheet), FreeTube, NewPipe, Invidious, and Google Takeout-like/YouTube API formats.
