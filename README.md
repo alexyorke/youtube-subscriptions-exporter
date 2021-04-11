@@ -107,3 +107,7 @@ Available on the [Chrome Extension Webstore](https://chrome.google.com/webstore/
 - Load the packed extension in Chrome's Extensions.
 
 - Click on the extension's icon and follow the on-screen directions.
+
+## What does Google Takeout-like mean?
+
+This extension doesn't have easy access to other thumbnail sizes, ETags, and the channel's description. These fields are left blank as they are not normally required to import subscriptions. Google Takeout does include these fields, and so this format isn't identical to Google takeout.
