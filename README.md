@@ -1,6 +1,6 @@
 # youtube-subscriptions-exporter
 
-Export your YouTube channel subscriptions to a spreadsheet-like text file. Tested on Firefox 84.0 and Chrome 87.0.4280.88 on Windows 10 as of December 16th, 2020.
+Export your YouTube channel subscriptions to a spreadsheet-like text file. Tested on Chrome 90.0.4430.93 on Windows 10 on normal, virtual MidDPI and HighDPI screens as of May 1st, 2021.
 
 ## How to use
 
