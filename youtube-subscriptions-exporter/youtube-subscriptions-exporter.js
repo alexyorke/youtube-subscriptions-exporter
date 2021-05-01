@@ -19,8 +19,8 @@ var start = async function() {
 
     let subscriptions = Array.from(document.querySelectorAll(
         "a#endpoint")).filter(
-        ytTextElement => !ytTextElement.innerHTML.includes(
-            "style-scope yt-icon")).map(elem => elem.title + "\t" +
+        ytTextElement => ytTextElement.innerHTML.includes(
+            "style-scope ytd-guide-entry-renderer no-transition")).map(elem => elem.title + "\t" +
         elem.href);
 
     copyToClipboard(subscriptions.join("\n"));
