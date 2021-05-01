@@ -32,9 +32,19 @@ var start = async function() {
 
     function getShowMoreElement() {
         let subscriptionsPanel = document.querySelectorAll("ytd-guide-section-renderer")[1];
-        if (subscriptionsPanel === undefined) return undefined;
-        return subscriptionsPanel.querySelector("#items > ytd-guide-collapsible-entry-renderer")
-                                 .querySelector("#endpoint");
+        if (subscriptionsPanel === undefined) return undefined; // it's still loading
+
+        let subscriptionsPanelInner = subscriptionsPanel.querySelector("#items > ytd-guide-collapsible-entry-renderer");
+
+        // it's loaded and there are enough subscriptions to show the "Show more" button
+        if (subscriptionsPanelInner !== null) {
+            return subscriptionsPanel.querySelector("#items > ytd-guide-collapsible-entry-renderer")
+                                     .querySelector("#endpoint");
+        } else {
+            // it's loaded, but there are just a few subscriptions
+            // it doesn't really matter what we click on
+            return document.createElement("foo");
+        }
     }
 
 }
