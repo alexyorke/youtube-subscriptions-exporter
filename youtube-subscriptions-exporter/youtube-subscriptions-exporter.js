@@ -31,11 +31,10 @@ var start = async function() {
         "Subscriptions have been successfully copied to the clipboard.");
 
     function getShowMoreElement() {
-        return Array.from(document.querySelectorAll(
-            "yt-formatted-string")).find(
-            ytTextElement => /Show \d+ more$/.exec(ytTextElement
-                .textContent) !==
-            null);
+        let subscriptionsPanel = document.querySelectorAll("ytd-guide-section-renderer")[1];
+        if (subscriptionsPanel === undefined) return undefined;
+        return subscriptionsPanel.querySelector("#items > ytd-guide-collapsible-entry-renderer")
+                                 .querySelector("#endpoint");
     }
 
 }
