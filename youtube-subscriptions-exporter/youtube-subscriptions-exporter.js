@@ -23,6 +23,8 @@ var start = async function() {
             "style-scope ytd-guide-entry-renderer no-transition")).map(elem => elem.title + "\t" +
         elem.href);
 
+    subscriptions.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
+
     copyToClipboard(subscriptions.join("\n"));
 
     alert(
